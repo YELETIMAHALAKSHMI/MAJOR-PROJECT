@@ -5,5 +5,5 @@
 -  Homesec page - Mahalakshmi(J2)
 -  Order products - Jahanvi(H2)
 -  Register page - Sylvia(I4)
--  Tracking page - 
+-  Tracking page - Sanjana(F6)
 -  Control supply chain - 
