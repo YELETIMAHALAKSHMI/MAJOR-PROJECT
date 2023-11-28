@@ -1,41 +1,35 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Home() {
-  const history = useHistory();
-  const redirect_to_roles = () => {
-    history.push("/roles");
-  };
-  const redirect_to_addmed = () => {
-    history.push("/addmed");
-  };
-  const redirect_to_supply = () => {
-    history.push("/supply");
-  };
-  const redirect_to_track = () => {
-    history.push("/track");
-  };
   const myStyle = {
-    backgroundColor: "#042743",
+    display: "flex",
+    flexDirection: "row",
     height: "100vh",
-    marginTop: "-70px",
-    fontSize: "50px",
-    //backgroundSize: "100% 100%",
+  };
+
+  const imgStyle = {
+    width: "50%",
+    backgroundImage: "url('./bgimage.jpg')",
+    backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
   };
-  const myStyle2 = {
+
+  const col2Style = {
     backgroundColor: "#86CEEB",
-  };
-  const redirect_to_home2 = () => {
-    history.push("/Homesec");
+    width: "50%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
   };
 
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           Supply chain
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -51,62 +45,55 @@ function Home() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" onClick={redirect_to_roles} href="/roles">
+              <Link className="nav-link" to="/roles">
                 Register <span className="sr-only">(current)</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item active">
-              <a
-                className="nav-link"
-                onClick={redirect_to_addmed}
-                href="/addmed"
-              >
-                order products<span className="sr-only">(current)</span>
-              </a>
+              <Link className="nav-link" to="/addmed">
+                Order Products <span className="sr-only">(current)</span>
+              </Link>
             </li>
             <li className="nav-item active">
-              <a
-                className="nav-link"
-                onClick={redirect_to_supply}
-                href="/supply"
-              >
-                control supply chain <span className="sr-only">(current)</span>
-              </a>
+              <Link className="nav-link" to="/supply">
+                Control Supply Chain <span className="sr-only">(current)</span>
+              </Link>
             </li>
             <li className="nav-item active">
-              <a className="nav-link" onClick={redirect_to_track} href="/track">
-                Track products <span className="sr-only">(current)</span>
-              </a>
+              <Link className="nav-link" to="/track">
+                Track Products <span className="sr-only">(current)</span>
+              </Link>
             </li>
           </ul>
         </div>
       </nav>
-      <div style={myStyle}>
-        <main class="my-8">
-          <div class="jumbotron" style={myStyle2}>
-            <h1 class="display-4">WELCOME!!</h1>
-            <p class="lead">
-              Our supply chain system manages how things get from where they're
-              made to where they're needed, making it smooth and efficient.
-            </p>
-            <hr class="my-4" />
-            <p>
-              Unlocking efficiency, enhancing connectivity: Revolutionize your
-              supply chain effortlessly.
-            </p>
-            <p class="lead">
-              <a
-                class="btn btn-primary btn-lg"
-                href="/Homesec"
-                onClick={redirect_to_home2}
-                role="button"
-              >
-                Get Started
-              </a>
-            </p>
-          </div>
-        </main>
-      </div>
+      <main style={myStyle} className="main-div">
+        {/* First column: Image */}
+        <div style={imgStyle} className="col1"></div>
+
+        {/* Second column: Get Started content */}
+        <div style={col2Style} className="col2-jumbotron">
+          <h1 className="display-4">WELCOME!!</h1>
+          <p className="lead">
+            Our supply chain system manages how things get from where they're
+            made to where they're needed, making it smooth and efficient.
+          </p>
+          <hr className="my-4" />
+          <p>
+            Unlocking efficiency, enhancing connectivity: Revolutionize your
+            supply chain effortlessly.
+          </p>
+          <p className="lead">
+            <Link
+              className="btn btn-primary btn-lg"
+              to="/Homesec"
+              role="button"
+            >
+              Get Started
+            </Link>
+          </p>
+        </div>
+      </main>
     </>
   );
 }
