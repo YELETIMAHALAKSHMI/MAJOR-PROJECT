@@ -1,23 +1,13 @@
 import React from 'react'
-import { useHistory } from "react-router-dom"
 
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 function Home() {
-    const history = useHistory()
-    const redirect_to_roles = () => {
-        history.push('/roles')
-    }
-    const redirect_to_addmed = () => {
-        history.push('/addmed')
-    }
-    const redirect_to_supply = () => {
-        history.push('/supply')
-    }
-    const redirect_to_track = () => {
-        history.push('/track')
-    }
+    
     const myStyle = {
+      backgroundImage:
+        "url('bgimage.jpg')",
         backgroundColor: '#042743',
         height: "100vh",
         marginTop: "-70px",
@@ -25,14 +15,7 @@ function Home() {
         //backgroundSize: "100% 100%",
         backgroundRepeat: "no-repeat",
     };
-    const myStyle2 = {
-        backgroundColor: '#86CEEB',
-       
-      
-    }
-    const redirect_to_home2 = () => {
-      history.push("/Homesec");
-    };
+    
    
     return (
         <>
@@ -46,38 +29,20 @@ function Home() {
   
     <ul className="navbar-nav mr-auto">
       <li className="nav-item active">
-        <a className="nav-link"  onClick={redirect_to_roles} href="#">Register <span className="sr-only">(current)</span></a>
+        <Link className="nav-link" to ="/roles">Register <span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item active">
-        <a className="nav-link" onClick = {redirect_to_addmed} href="#">order products<span className="sr-only">(current)</span></a>
+        <Link className="nav-link" href="/addmed">order products<span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item active">
-        <a  className="nav-link" onClick = {redirect_to_supply} href="#">control supply chain <span className="sr-only">(current)</span></a>
+        <Link  className="nav-link" to="/supply">control supply chain <span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item active">
-        <a className="nav-link" onClick={redirect_to_track} href="#">Track products <span className="sr-only">(current)</span></a>
+        <Link className="nav-link" to="/track">Track products <span className="sr-only">(current)</span></Link>
       </li>
       </ul>
     
   </div>
 </nav>
-<div style={myStyle}>
-    <main class = "my-8">
-    <div class="jumbotron" style={myStyle2}>
-  <h1 class="display-4">WELCOME!!</h1>
-  <p class="lead">Our supply chain system manages how things get from where they're made to where they're needed, making it smooth and efficient.</p>
-  <hr class="my-4"/>
-  <p>Unlocking efficiency, enhancing connectivity: Revolutionize your supply chain effortlessly.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" onClick={redirect_to_home2} role="button">Get Started</a>
-  </p>
-</div>
-    </main>
-</div>
+<main><div style={myStyle}></div></main>
 
-   
-</>
-    )
-}
-
-export default Home
