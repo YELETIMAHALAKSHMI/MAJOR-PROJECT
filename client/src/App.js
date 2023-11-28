@@ -1,11 +1,11 @@
-import './App.css';
-import AssignRoles from './AssignRoles';
-import Home from './Home';
-import AddMed from './AddMed';
-import Supply from './Supply'
-import Track from './Track'
-import Homesec from './Homesec'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import "./App.css";
+import AssignRoles from "./AssignRoles";
+import Home from "./Home";
+import AddMed from "./AddMed";
+import Supply from "./Supply";
+import Track from "./Track";
+import Homesec from "./Homesec";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (

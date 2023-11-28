@@ -98,7 +98,7 @@ function Homesec() {
         <br />
 
         <div className="container">
-          {/* Each step in a separate horizontal grid */}
+          {}
           <div className="step-container">
             <div className="step" onClick={redirect_to_roles}>
               <div className="step-content">
@@ -161,7 +161,7 @@ function Homesec() {
               </center>
             </div>
           </div>
-          {/* One-fourth of the bottom portion */}
+          {}
           <div className="row track-container">
             <div className="col-md-12">
               <h5 style={{ marginBottom: "20px", marginTop: "20px" }}>
