@@ -2,12 +2,8 @@ import React from 'react'
 
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
-
 function Home() {
-    
     const myStyle = {
-      backgroundImage:
-        "url('bgimage.jpg')",
         backgroundColor: '#042743',
         height: "100vh",
         marginTop: "-70px",
@@ -15,8 +11,12 @@ function Home() {
         //backgroundSize: "100% 100%",
         backgroundRepeat: "no-repeat",
     };
+    const myStyle2 = {
+      backgroundColor: '#86CEEB',
+     
     
-   
+  }
+    
     return (
         <>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,5 +44,31 @@ function Home() {
     
   </div>
 </nav>
-<main><div style={myStyle}></div></main>
+<main style={myStyle} className='main-div'>
+  
+<img src = "bgimage.jpg" style={{height: '100%'}} className='col1'/>
+<div className="col2-jumbotron" style={myStyle2}>
+  <h1 class="display-4">WELCOME!!</h1>
+  <p class="lead">Our supply chain system manages how things get from where they're made to where they're needed, making it smooth and efficient.</p>
+  <hr class="my-4"/>
+  <p>Unlocking efficiency, enhancing connectivity: Revolutionize your supply chain effortlessly.</p>
+  <p class="lead">
+    <Link class="btn btn-primary btn-lg" to="/Homesec" role="button">Get Started</Link>
+  </p>
+</div>
+
+ 
+  
+
+</main>
+
+
+
+
+   
+</>
+    )
+}
+
+export default Home
 
