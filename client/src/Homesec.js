@@ -3,19 +3,15 @@ import { useHistory } from "react-router-dom";
 
 function Homesec() {
   const history = useHistory();
-
   const redirect_to_roles = () => {
     history.push("/roles");
   };
-
   const redirect_to_addmed = () => {
     history.push("/addmed");
   };
-
   const redirect_to_supply = () => {
     history.push("/supply");
   };
-
   const redirect_to_track = () => {
     history.push("/track");
   };
