@@ -93,20 +93,23 @@ function AddMed() {
     }
     return (
         <div>
-            <style>{'body { background-color: cyan; }'}</style>
-            <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
-            <br />
-            <h5>Add product Order:</h5>
-            <form onSubmit={handlerSubmitMED}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeNameMED} placeholder="product Name" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangeDesMED} placeholder="product Description" required />
+            <style>{'body { background-color:orange }'}</style>
+            <center><h1><font color="black">Order the Products here</font></h1></center>
+            <span><b><font color="black">Current Account Address:</font></b>
+            &nbsp;<font color="red">{currentaccount}</font></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"><font color="black">HOME</font></span>
+            <br /><br /> 
+            <center><font color="black"><h5>Add products:</h5></font></center>
+            <center><form onSubmit={handlerSubmitMED}>
+                <input className="form-control-sm" type="text" onChange={handlerChangeNameMED} placeholder="product Name" required /> &nbsp;&nbsp;&nbsp;
+                <input className="form-control-sm" type="text" onChange={handlerChangeDesMED} placeholder="product Description" required /> &nbsp;&nbsp;&nbsp;
                 
-    
+
                 <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitMED}>Order</button>
-            </form>
+            </form></center>
             <br />
-            <h5>Ordered Products:</h5>
+            <center>
+            <font color="black"><h5>Ordered Products:</h5></font></center>
             <table className="table table-bordered">
                 <thead>
                     <tr>
@@ -114,7 +117,9 @@ function AddMed() {
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
                         <th scope="col">Current Stage</th>
+                        
                     </tr>
+
                 </thead>
                 <tbody>
                     {Object.keys(MED).map(function (key) {
