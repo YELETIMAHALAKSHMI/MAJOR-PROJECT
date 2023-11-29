@@ -187,14 +187,40 @@ function AssignRoles() {
             <style>{'body { background-color: cyan; }'}</style>
             <span><b>Current Account Address:</b> {currentaccount}</span>
             <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm">HOME</span>
-            <h4>Raw Material Suppliers:</h4>
-            <form onSubmit={handlerSubmitRMS}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeAddressRMS} placeholder="Ethereum Address" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangeNameRMS} placeholder="Raw Material Supplier Name" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangePlaceRMS} placeholder="PLACE" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRMS}>Register</button>
-            </form>
-            <table className="table table-sm">
+            <h4><center>Raw Material Suppliers:</center></h4>
+            
+
+
+
+
+<div className="container">
+      <div className="row">
+        {/* Raw Material Suppliers Card */}
+
+
+        <div className="col-md-6">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h4 className="card-title text-center">Raw Material Suppliers</h4>
+              <form onSubmit={handlerSubmitRMS} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 'auto' }}>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Name of the Supplier :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeNameRMS} placeholder="Raw Material Supplier Name" required style={{ width: '100%' }} />
+                </div>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Enter the Location :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangePlaceRMS} placeholder="Place" required style={{ width: '100%' }} />
+                </div>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Ethereum Address :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeAddressRMS} placeholder="Ethereum Address" required style={{ width: '100%' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', width: '100%' }}>
+                  <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitMAN}>Register</button>
+                </div>
+              </form>
+<br></br>
+              <table className="table table-sm">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -215,15 +241,45 @@ function AssignRoles() {
                         )
                     })}
                 </tbody>
-            </table>
-            <h4>Manufacturers:</h4>
-            <form onSubmit={handlerSubmitMAN}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeAddressMAN} placeholder="Ethereum Address" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangeNameMAN} placeholder="Manufacturer Name" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangePlaceMAN} placeholder="PLACE" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitMAN}>Register</button>
-            </form>
-            <table className="table table-sm">
+            </table> 
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+        
+
+        {/* Manufacturers Card */}
+
+
+
+
+        <div className="col-md-6">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h4 className="card-title text-center">Manufacturers</h4>
+              <form onSubmit={handlerSubmitMAN} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 'auto' }}>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Name of the Manufacturer :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeNameMAN} placeholder="Raw Material Supplier Name" required style={{ width: '100%' }} />
+                </div>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Enter the Location :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangePlaceMAN} placeholder="Place" required style={{ width: '100%' }} />
+                </div>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Ethereum Address :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeAddressMAN} placeholder="Ethereum Address" required style={{ width: '100%' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', width: '100%' }}>
+                  <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitMAN}>Register</button>
+                </div>
+              </form>
+<br></br>
+<table className="table table-sm">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -245,14 +301,48 @@ function AssignRoles() {
                     })}
                 </tbody>
             </table>
-            <h4>Distributors:</h4>
-            <form onSubmit={handlerSubmitDIS}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeAddressDIS} placeholder="Ethereum Address" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangeNameDIS} placeholder="Distributor Name" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangePlaceDIS} placeholder="PLACE" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitDIS}>Register</button>
-            </form>
-            <table className="table table-sm">
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+        
+      </div>
+    </div>
+
+            
+
+
+<div className="container">
+      <div className="row">
+        {/* Distributors Card */}
+        
+<div className="col-md-6">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h4 className="card-title text-center">Distributors</h4>
+              <form onSubmit={handlerSubmitDIS} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 'auto' }}>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Name of the Distributor :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeNameDIS} placeholder="Distributor Name" required style={{ width: '100%' }} />
+                </div>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Enter the Location :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangePlaceDIS} placeholder="Place" required style={{ width: '100%' }} />
+                </div>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Ethereum Address :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeAddressDIS} placeholder="Ethereum Address" required style={{ width: '100%' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', width: '100%' }}>
+                  <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitDIS}>Register</button>
+                </div>
+              </form>
+              <br></br>
+              <table className="table table-sm">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -274,14 +364,33 @@ function AssignRoles() {
                     })}
                 </tbody>
             </table>
-            <h4>Retailers:</h4>
-            <form onSubmit={handlerSubmitRET}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeAddressRET} placeholder="Ethereum Address" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangeNameRET} placeholder="Retailer Name" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangePlaceRET} placeholder="PLACE" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRET}>Register</button>
-            </form>
-            <table className="table table-sm">
+            </div>
+          </div>
+        </div>
+   {/* Retailers Card */}
+   <div className="col-md-6">
+   <div className="card mb-4">
+            <div className="card-body">
+              <h4 className="card-title text-center">Retailer</h4>
+              <form onSubmit={handlerSubmitRET} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 'auto' }}>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Name of the Retailer :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeNameRET} placeholder="Distributor Name" required style={{ width: '100%' }} />
+                </div>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Enter the Location :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangePlaceRET} placeholder="Place" required style={{ width: '100%' }} />
+                </div>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <h5 style={{ margin: '0 10px 0 0' }}>Ethereum Address :</h5>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeAddressRET} placeholder="Ethereum Address" required style={{ width: '100%' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', width: '100%' }}>
+                  <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRET}>Register</button>
+                </div>
+              </form>
+              <br></br>
+              <table className="table table-sm">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -303,8 +412,20 @@ function AssignRoles() {
                     })}
                 </tbody>
             </table>
+
+
+            </div>
+          </div>
         </div>
+        
+      </div>
+    </div>
+
+        
+           
+       </div>
     )
 }
+ 
 
 export default AssignRoles
