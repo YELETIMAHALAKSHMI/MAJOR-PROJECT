@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
 import { useHistory } from "react-router-dom"
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 
 function AssignRoles() {
     const history = useHistory()
@@ -185,14 +187,59 @@ function AssignRoles() {
     return (
         <div>
             <style>{'body { background-color: cyan; }'}</style>
-            <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm">HOME</span>
-            <h4><center>Raw Material Suppliers:</center></h4>
+            
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <Link className="navbar-brand" to="/">
+          Supply chain
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <Link className="nav-link" to="/roles">
+                Register <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/addmed">
+                Order Products <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/supply">
+                Control Supply Chain <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/track">
+                Track Products <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+            
+        <br></br>    
+            
             
 
 
 
-
+<span><b>Current Account Address:</b> {currentaccount}</span>
+              <br></br>
+              <br></br>
 <div className="container">
       <div className="row">
         {/* Raw Material Suppliers Card */}
