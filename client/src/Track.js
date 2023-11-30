@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Track() {
     const history = useHistory()
@@ -396,46 +397,108 @@ function Track() {
 
         }
     }
-
     return (
         <div>
-            <style>{'body { background-color: cyan; }'}</style>
-            <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
-            <table className="table table-sm table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Product ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Current Processing Stage</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {Object.keys(MED).map(function (key) {
-                        return (
-                            <tr key={key}>
-                                <td>{MED[key].id}</td>
-                                <td>{MED[key].name}</td>
-                                <td>{MED[key].description}</td>
-                                <td>
-                                    {
-                                        MedStage[key]
-                                    }
-                                </td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-            <h5><center>Enter Product ID to Track it</center></h5>
+        <style>{'body { background-color: cyan; }'}</style>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <Link className="navbar-brand" to="/">
+          Supply chain
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-            <form onSubmit={handlerSubmit}>
-                <center><input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required /></center>
-                <center><button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmit}>Track</button></center>
-            </form>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <Link className="nav-link" to="/roles">
+                Register <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/addmed">
+                Order Products <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/supply">
+                Control Supply Chain <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/track">
+                Track Products <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <br></br>
+            <span><b>Current Account Address:</b> {currentaccount}</span>
+            {/* <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span> */}
+        <table className="table table-sm table-bordered mt-5"> {/* Added 'mt-3' for top margin */}
+  <thead>
+    <tr>
+      <th scope="col">Product ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Current Processing Stage</th>
+    </tr>
+  </thead>
+  <tbody>
+  {Object.keys(MED).map(function (key) {
+    return (
+      <tr key={key}>
+        <td style={{ fontSize: '16px' }}>{MED[key].id}</td>
+        <td style={{ fontSize: '16px' }}>{MED[key].name}</td>
+        <td style={{ fontSize: '16px' }}>{MED[key].description}</td>
+        <td style={{ fontSize: '16px' }}>{MedStage[key]}</td>
+      </tr>
+    );
+  })}
+</tbody>
+            </table>
+                        <div className="container-fluid d-flex align-items-center justify-content-center vh-100">
+  <div className="card w-50 h-40 mb-3 d-flex align-items-center justify-content-center" style={{  paddingTop: '20px' }}>
+  <div className="card-body text-center">
+    <h5 className="card-title mb-4">Enter Product ID to Track It</h5>
+    <form onSubmit={handlerSubmit}>
+      <div className="mb-4">
+        <center>
+        <input
+          className="form-control-sm"
+          type="text"
+          onChange={handlerChangeID}
+          placeholder="Enter Product ID"
+          required
+        />
+        </center>
+      </div>
+      <div>
+        <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmit}>
+          Track
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div className="table-container mt-3 w-70"> {/* Adjust 'w-75' for width */}
+    <table className="table table-sm table-bordered">
+      {/* ... Table content ... */}
+    </table>
+  </div>
+</div>
         </div>
     )
 }
 
-export default Track
+export default Track   
