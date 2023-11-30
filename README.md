@@ -6,4 +6,4 @@
 -  Order products - Jahanvi(H2)
 -  Register page - Sylvia(I4)
 -  Tracking page - Sanjana(F6)
--  Control supply chain - 
+-  Control supply chain - Sylvia(I4)
