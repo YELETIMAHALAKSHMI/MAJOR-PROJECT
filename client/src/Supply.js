@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Supply() {
     const history = useHistory()
@@ -134,10 +135,55 @@ function Supply() {
     return (
         <div>
             <style>{'body { background-color: cyan; }'}</style>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <Link className="navbar-brand" to="/">
+          Supply chain
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <Link className="nav-link" to="/roles">
+                Register <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/addmed">
+                Order Products <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/supply">
+                Control Supply Chain <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/track">
+                Track Products <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <br></br>
             <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
+            {/* <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span> */}
+            <br></br>
+            <br></br>
             <h6><b>Supply Chain Flow:</b></h6>
             <p>Product Order -&gt; Raw Material Supplier -&gt; Manufacturer -&gt; Distributor -&gt; Retailer -&gt; Consumer</p>
+            
             <table className="table table-sm table-dark">
                 <thead>
                     <tr>
@@ -164,40 +210,116 @@ function Supply() {
                     })}
                 </tbody>
             </table>
-            <h5><b>Step 1: Supply Raw Materials</b>(Only a registered Raw Material Supplier can perform this step):-</h5>
-            <form onSubmit={handlerSubmitRMSsupply}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRMSsupply}>Supply</button>
-            </form>
-            <hr />
+            
+            
+
+<div className="container">
+      <div className="row">
+        {/* Raw Material Suppliers Card */}
+        <div className="col-md-6">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h5 className="card-title text-center"><b>Step 1: Supply Raw Materials</b>(Only a registered Raw Material Supplier can perform this step):-</h5>
+              <br></br>
+              <form onSubmit={handlerSubmitRMSsupply} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 'auto' }}>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required style={{ width: '100%' }} />
+                </div>
+                <br></br>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', width: '100%' }}>
+                  <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRMSsupply}>Supply</button>
+                </div>
+              </form>           
             <br />
-            <h5><b>Step 2: Manufacture</b>(Only a registered Manufacturer can perform this step):-</h5>
-            <form onSubmit={handlerSubmitManufacturing}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitManufacturing}>Manufacture</button>
-            </form>
-            <hr />
+<br></br>
+            </div>
+          </div>
+        </div>
+        {/* Manufacturers Card */}
+        <div className="col-md-6">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h5 className="card-title text-center"><b>Step 2: Manufacture</b>(Only a registered Manufacturer can perform this step):-</h5>
+              <br></br>
+              <form onSubmit={handlerSubmitManufacturing} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 'auto' }}>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required style={{ width: '100%' }} />
+                </div>
+                <br></br>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', width: '100%' }}>
+                  <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitManufacturing}>Manufacture</button>
+                </div>
+              </form>
             <br />
-            <h5><b>Step 3: Distribute</b>(Only a registered Distributor can perform this step):-</h5>
-            <form onSubmit={handlerSubmitDistribute}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitDistribute}>Distribute</button>
-            </form>
-            <hr />
+<br></br>
+            </div>
+          </div>
+        </div>       
+      </div>
+    </div>
+
+    <div className="container">
+      <div className="row">
+        {/* Raw Material Suppliers Card */}
+        <div className="col-md-6">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h5 className="card-title text-center"><b>Step 3: Distribute</b>(Only a registered Distributor can perform this step):-</h5>
+              <form onSubmit={handlerSubmitDistribute} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 'auto' }}>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required style={{ width: '100%' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', width: '100%' }}>
+                  <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitDistribute}>Distribute</button>
+                </div>
+              </form> 
             <br />
-            <h5><b>Step 4: Retail</b>(Only a registered Retailer can perform this step):-</h5>
-            <form onSubmit={handlerSubmitRetail}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRetail}>Retail</button>
-            </form>
-            <hr />
-            <br />
-            <h5><b>Step 5: Mark as sold</b>(Only a registered Retailer can perform this step):-</h5>
-            <form onSubmit={handlerSubmitSold}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitSold}>Sold</button>
-            </form>
-            <hr />
+<br></br>
+            </div>
+          </div>
+        </div>
+        {/* Manufacturers Card */}
+        <div className="col-md-6">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h5 className="card-title text-center"><b>Step 4: Retail</b>(Only a registered Retailer can perform this step):-</h5>
+              <form onSubmit={handlerSubmitRetail} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 'auto' }}>
+                <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                  <input className="form-control-sm custom-input" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required style={{ width: '100%' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', width: '100%' }}>
+                  <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRetail}>Retail</button>
+                </div>
+              </form>
+              <br />
+<br></br>
+            </div>
+          </div>
+        </div>       
+      </div>
+    </div>
+    
+    <div className="container">
+    <div className="row justify-content-center">
+        <div className="col-md-6">
+            <div className="card mb-4">
+                <div className="card-body">
+                    <h5 className="card-title text-center"><b>Step 5: Mark as sold</b>(Only a registered Retailer can perform this step):-</h5>
+                    <form onSubmit={handlerSubmitSold} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 'auto' }}>
+                        <div className="custom-input-container" style={{ marginBottom: '10px', width: '100%' }}>
+                            <input className="form-control-sm custom-input" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required style={{ width: '100%' }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', width: '100%' }}>
+                            <button className="btn btn-outline-success btn-sm" type="submit">Sold</button>
+                        </div>
+                    </form>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>         
         </div>
     )
 }
